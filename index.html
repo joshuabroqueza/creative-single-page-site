@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/dist/output.css" rel="stylesheet" />
+    <title>CREATIVE SINGLE PAGE</title>
+  </head>
+  <body class="relative">
+    <nav
+      class="flex flex-row justify-between items-center p-5 drop-shadow-md bg-white relative z-10"
+    >
+      <div>
+        <img src="./assets/desktop/logo.svg" alt="logo" />
+      </div>
+
+      <div>
+        <img
+          id="hambuger_icon"
+          class="hambuger_icon"
+          src="./assets/mobile/icon-hamburger.svg"
+          alt=""
+        />
+
+        <img
+          id="cross_icon"
+          class="cross_icon hidden"
+          src="./assets/mobile/icon-cross.svg"
+          alt=""
+        />
+      </div>
+    </nav>
+
+    <div class="relative">
+      <div
+        id="navbar_container"
+        class="navbar_container hidden w-1/2 bg-[#191921] text-white text-sm absolute top-0 right-0 z-20"
+      >
+        <ul class="navbar flex flex-col justify-center items-center">
+          <li class="navbar_item m-2 hover:bg-red-500 px-10 py-4 ">
+            <a href="#">About</a>
+          </li>
+          <li class="navbar_item m-2 hover:bg-red-500 px-10 py-4">
+            <a href="#">Services</a>
+          </li>
+          <li class="navbar_item m-2 hover:bg-red-500 px-10 py-4">
+            <a href="#">Projects</a>
+          </li>
+          <li class="navbar_item m-2 hover:bg-red-500 px-10 py-4">
+            <a href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="hero_section relative z-0">
+      <div>
+        <img
+          class="w-full"
+          src="./assets/mobile/image-hero.jpg"
+          alt="image_hero"
+        />
+      </div>
+      <div class="px-5 py-10">
+        <h1 class="font-extrabold text-3xl my-2">
+          Branding & website design agency
+        </h1>
+        <p class="my-1 text-sm">
+          We specialize in visual storytelling by creating cohesive brand and
+          website design solutions for small businesses, giving lasting
+          impressions to audiences in a digital world.
+        </p>
+        <button
+          class="text-white text-sm px-6 py-3 my-5 font-bold bg-[#F94F4F]"
+        >
+          Learn More
+        </button>
+      </div>
+    </div>
+
+    <script>
+      const hambuger_icon = document.getElementById("hambuger_icon");
+      const cross_icon = document.getElementById("cross_icon");
+      const navbar_container = document.getElementById("navbar_container");
+
+      hambuger_icon.addEventListener("click", () => {
+        // Show X icon
+        hambuger_icon.classList.add("hidden");
+        cross_icon.classList.remove("hidden");
+        navbar_container.classList.remove("hidden");
+      });
+
+      cross_icon.addEventListener("click", () => {
+        // Show hamburger icon
+        hambuger_icon.classList.remove("hidden");
+        cross_icon.classList.add("hidden");
+        navbar_container.classList.add("hidden");
+      });
+    </script>
+  </body>
+</html>
+
+<!-- <div class="relative">
+      <div class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50">
+        <div class="flex flex-col justify-center items-center h-full">
+          <h1 class="text-white text-4xl font-bold">WE ARE CREATIVES</h1>
+          <button class="bg-white text-black px-10 py-4 mt-10">
+            <a href="#">LEARN MORE</a>
+          </button>
+        </div>
+      </div>
+      <div>
+        <img
+          class="w-full"
+          src="./assets/desktop/image-hero.jpg"
+          alt="image_hero"
+        />
+      </div>
+    </div> -->
