@@ -186,7 +186,7 @@
 
     <!-- SLIDE SECTION -->
     <section>
-      <div class="slide_container">
+      <div class="slide_container bg-[#191921]">
         <div class="slide_child">
           <div class="relative">
             <div class="slide font-extrabold text-slate-200 text-7xl">
@@ -199,28 +199,74 @@
             <div
               class="slide_content text-white absolute top-3/4 right-5 transform -translate-y-1/4"
             >
-              <h2 class="text-bold">Lean Product Roadmap</h2>
+              <h2 class="text-bold text-xl">Lean Product Roadmap</h2>
               <p>2019 Project</p>
             </div>
           </div>
-          <div class="bg-[#191921] px-10">
+          <div class="bg-[#191921] px-10 py-5">
             <h1 class="font-bold py-10 text-white text-3xl">
               Brand naming & guidelines
             </h1>
-
-            <div class="direction_container py-4 flex flex-row">
-              <div
-                class="border border-[#F94F4F] flex justify-center items-center text-[#F94F4F] text-xl w-[50px] h-[50px] rounded-full"
-              >
-                <button><</button>
-              </div>
-              <div
-                class="border mx-3 border-[#F94F4F] flex justify-center items-center text-[#F94F4F] text-xl w-[50px] h-[50px] rounded-full"
-              >
-                <button>></button>
-              </div>
+          </div>
+        </div>
+        <div class="slide_child hidden">
+          <div class="relative">
+            <div class="slide font-extrabold text-slate-200 text-7xl">
+              <img
+                class="w-full"
+                src="./assets/mobile/image-slide-2.jpg"
+                alt="image-slide-1"
+              />
+            </div>
+            <div
+              class="slide_content text-white absolute top-3/4 right-5 transform -translate-y-1/4"
+            >
+              <h2 class="text-bold text-xl">New Majestic Hotel</h2>
+              <p>2018 Project</p>
             </div>
           </div>
+          <div class="bg-[#191921] px-10 py-5">
+            <h1 class="font-bold py-10 text-white text-3xl">
+              Brand identity & merchandise
+            </h1>
+          </div>
+        </div>
+        <div class="slide_child hidden">
+          <div class="relative">
+            <div class="slide font-extrabold text-slate-200 text-7xl">
+              <img
+                class="w-full"
+                src="./assets/mobile/image-slide-3.jpg"
+                alt="image-slide-3"
+              />
+            </div>
+            <div
+              class="slide_content text-white absolute top-3/4 right-5 transform -translate-y-1/4"
+            >
+              <h2 class="text-bold text-xl">Crypto Dashboard</h2>
+              <p>2016 Project</p>
+            </div>
+          </div>
+          <div class="bg-[#191921] px-10 py-5">
+            <h1 class="font-bold py-10 text-white text-3xl">
+              Brand identity & web design
+            </h1>
+          </div>
+        </div>
+        <div class="direction_container px-10 py-4 flex flex-row">
+          <button
+            id="slide_left"
+            class="border border-[#F94F4F] flex justify-center items-center text-[#F94F4F] text-xl w-[50px] h-[50px] shadow-md hover:shadow-xl active:scale-90 transition duration-300 rounded-full active:rounded-full"
+          >
+            <
+          </button>
+          <button
+            id="slide_right"
+            class="border mx-3 border-[#F94F4F] flex justify-center items-center text-[#F94F4F] text-xl w-[50px] h-[50px] shadow-md hover:shadow-xl active:scale-90 transition duration-300 rounded-full active:rounded-full"
+          >
+            <!-- <button>></button> -->
+            >
+          </button>
         </div>
       </div>
     </section>
@@ -243,6 +289,45 @@
         cross_icon.classList.add("hidden");
         navbar_container.classList.add("hidden");
       });
+
+      //SLIDE SECTION
+
+      const slideLeftBtn = document.getElementById("slide_left");
+      const slideRightBtn = document.getElementById("slide_right");
+      const slideContainer = document.querySelector(".slide_container");
+      const slideChildren = document.querySelectorAll(".slide_child");
+
+      let currentIndex = 0;
+
+      function showSlide(index) {
+        // Hide all slide children
+        slideChildren.forEach((child) => {
+          child.classList.add("hidden");
+        });
+
+        // Show the slide at the given index
+        slideChildren[index].classList.remove("hidden");
+      }
+
+      function moveSlideLeft() {
+        currentIndex--;
+        if (currentIndex < 0) {
+          currentIndex = slideChildren.length - 1;
+        }
+        showSlide(currentIndex);
+      }
+
+      function moveSlideRight() {
+        currentIndex++;
+        if (currentIndex >= slideChildren.length) {
+          currentIndex = 0;
+        }
+        showSlide(currentIndex);
+      }
+
+      // Attach event listeners to slide buttons
+      slideLeftBtn.addEventListener("click", moveSlideLeft);
+      slideRightBtn.addEventListener("click", moveSlideRight);
     </script>
   </body>
 </html>
