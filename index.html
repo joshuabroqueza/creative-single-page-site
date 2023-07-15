@@ -16,8 +16,8 @@
 
       <div>
         <img
-          id="hambuger_icon"
-          class="hambuger_icon"
+          id="hamburger_icon"
+          class="hamburger_icon"
           src="./assets/mobile/icon-hamburger.svg"
           alt=""
         />
@@ -38,22 +38,23 @@
       >
         <ul class="navbar flex flex-col justify-center items-center">
           <li class="navbar_item m-2 hover:bg-red-500 px-10 py-4">
-            <a href="#">About</a>
+            <a href="#about_section">About</a>
           </li>
           <li class="navbar_item m-2 hover:bg-red-500 px-10 py-4">
-            <a href="#">Services</a>
+            <a href="#services_section">Services</a>
           </li>
           <li class="navbar_item m-2 hover:bg-red-500 px-10 py-4">
-            <a href="#">Projects</a>
+            <a href="#projects_section">Projects</a>
           </li>
           <li class="navbar_item m-2 hover:bg-red-500 px-10 py-4">
-            <a href="#">Contact</a>
+            <a href="#contact_section">Contact</a>
           </li>
         </ul>
       </div>
     </div>
 
-    <div class="hero_section relative z-0">
+    <!-- ABOUT SECTION -->
+    <div id="about-section" class="hero_section relative z-0">
       <div>
         <img
           class="w-full"
@@ -71,15 +72,15 @@
           impressions to audiences in a digital world.
         </p>
         <button
-          class="text-white text-sm px-5 w-1/2 py-4 my-5 font-bold bg-[#F94F4F] drop-shadow-md shadow-sm"
+          class="text-white text-sm px-5 w-1/2 py-4 my-5 font-bold bg-[#F94F4F] drop-shadow-md shadow-sm shadow-md hover:shadow-xl active:scale-90 transition duration-300"
         >
           Learn More
         </button>
       </div>
     </div>
 
-    <!-- SECOND SECTION -->
-    <section>
+    <!-- SERVICES SECTION -->
+    <section id="services_section">
       <div class="relative">
         <div class="strategic_container">
           <img
@@ -114,7 +115,7 @@
     </section>
 
     <!-- APPROACH SECTION -->
-    <section class="bg-[#F94F4F] px-5 py-16">
+    <section id="approach_section" class="bg-[#F94F4F] px-5 py-16">
       <div>
         <h1 class="text-white font-bold text-3xl py-8 pr-10">
           Our approach for creating a winning brand
@@ -184,8 +185,8 @@
       </div>
     </section>
 
-    <!-- SLIDE SECTION -->
-    <section>
+    <!-- PROJECTS SECTION -->
+    <section id="projects_section">
       <div class="slide_container bg-[#191921]">
         <div class="slide_child">
           <div class="relative">
@@ -271,23 +272,53 @@
       </div>
     </section>
 
-    <script>
-      const hambuger_icon = document.getElementById("hambuger_icon");
-      const cross_icon = document.getElementById("cross_icon");
-      const navbar_container = document.getElementById("navbar_container");
+    <!-- CONTACT SECTION -->
+    <footer id="contact_section" class="my-10 p-5">
+      <div>
+        <h1 class="text-2xl font-bold py-7">
+          Let's build something great together.
+        </h1>
+      </div>
+      <div>
+        <button
+          class="bg-[#F94F4F] px-7 py-5 text-white shadow-md hover:shadow-xl active:scale-90 transition duration-300"
+        >
+          Schedule a call
+        </button>
+      </div>
+    </footer>
 
-      hambuger_icon.addEventListener("click", () => {
+    <script>
+      const hamburgerIcon = document.getElementById("hamburger_icon");
+      const crossIcon = document.getElementById("cross_icon");
+      const navbarContainer = document.getElementById("navbar_container");
+
+      hamburgerIcon.addEventListener("click", () => {
         // Show X icon
-        hambuger_icon.classList.add("hidden");
-        cross_icon.classList.remove("hidden");
-        navbar_container.classList.remove("hidden");
+        hamburgerIcon.classList.add("hidden");
+        crossIcon.classList.remove("hidden");
+        navbarContainer.classList.remove("hidden");
       });
 
-      cross_icon.addEventListener("click", () => {
+      crossIcon.addEventListener("click", () => {
         // Show hamburger icon
-        hambuger_icon.classList.remove("hidden");
-        cross_icon.classList.add("hidden");
-        navbar_container.classList.add("hidden");
+        hamburgerIcon.classList.remove("hidden");
+        crossIcon.classList.add("hidden");
+        navbarContainer.classList.add("hidden");
+      });
+
+      // Add event listener to the document to handle clicks outside the navbar container
+      document.addEventListener("click", (event) => {
+        // Check if the click target is outside the navbar container
+        if (
+          !navbarContainer.contains(event.target) &&
+          event.target !== hamburgerIcon
+        ) {
+          // Hide the navbar container
+          hamburgerIcon.classList.remove("hidden");
+          crossIcon.classList.add("hidden");
+          navbarContainer.classList.add("hidden");
+        }
       });
 
       //SLIDE SECTION
@@ -328,24 +359,33 @@
       // Attach event listeners to slide buttons
       slideLeftBtn.addEventListener("click", moveSlideLeft);
       slideRightBtn.addEventListener("click", moveSlideRight);
+
+      // Smooth scrolling to the section when a navbar item is clicked
+      const navbarItems = document.querySelectorAll(".navbar_item a");
+
+      navbarItems.forEach((item) => {
+        item.addEventListener("click", (event) => {
+          event.preventDefault();
+          const targetId = item.getAttribute("href").substring(1);
+          const targetSection = document.getElementById(targetId);
+
+          if (targetSection) {
+            targetSection.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+
+          // Hide the navbar container after clicking a navbar item
+          const hamburgerIcon = document.getElementById("hamburger_icon");
+          const crossIcon = document.getElementById("cross_icon");
+          const navbarContainer = document.getElementById("navbar_container");
+
+          hamburgerIcon.classList.remove("hidden");
+          crossIcon.classList.add("hidden");
+          navbarContainer.classList.add("hidden");
+        });
+      });
     </script>
   </body>
 </html>
-
-<!-- <div class="relative">
-      <div class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50">
-        <div class="flex flex-col justify-center items-center h-full">
-          <h1 class="text-white text-4xl font-bold">WE ARE CREATIVES</h1>
-          <button class="bg-white text-black px-10 py-4 mt-10">
-            <a href="#">LEARN MORE</a>
-          </button>
-        </div>
-      </div>
-      <div>
-        <img
-          class="w-full"
-          src="./assets/desktop/image-hero.jpg"
-          alt="image_hero"
-        />
-      </div>
-    </div> -->
