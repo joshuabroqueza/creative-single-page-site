@@ -8,13 +8,39 @@
   </head>
   <body class="relative">
     <nav
-      class="flex flex-row justify-between items-center p-5 drop-shadow-md bg-white relative z-10"
+      class="flex flex-row justify-between items-center p-5 md:p-0 drop-shadow-md bg-white relative z-10"
     >
-      <div>
+      <div class="p-5">
         <img src="./assets/desktop/logo.svg" alt="logo" />
       </div>
 
-      <div>
+      <ul
+        class="navbar hidden md:flex flex-row justify-between items-center h-full w-1/2 p-12 bg-[#F94F4F]"
+      >
+        <li
+          class="navbar_item hover:[#191921] px-3 py-2 text-white hover:bg-[#191921] active:text-white hover:text-white hover:font-bold"
+        >
+          <a href="#about_sections">About</a>
+        </li>
+        <li
+          class="navbar_item hover:[#191921] px-3 py-2 text-white hover:bg-[#191921] active:text-white hover:text-white hover:font-bold"
+        >
+          <a href="#services_sections">Services</a>
+        </li>
+        <li
+          class="navbar_itemmhover:[#191921] px-3 py-2 text-white hover:bg-[#191921] active:text-white hover:text-white hover:font-bold"
+        >
+          <a href="#projects_sections">Projects</a>
+        </li>
+        <li
+          class="navbar_item hover:[#191921] px-3 py-2 text-white hover:bg-[#191921] active:text-white hover:text-white hover:font-bold"
+        >
+          <a href="#contact_sections">Contact</a>
+        </li>
+      </ul>
+
+      <!-- MOBILE ICONS -->
+      <div class="md:hidden">
         <img
           id="hamburger_icon"
           class="hamburger_icon"
@@ -54,25 +80,33 @@
     </div>
 
     <!-- ABOUT SECTION -->
-    <div id="about-section" class="hero_section relative z-0">
-      <div>
+    <div
+      id="about-section"
+      class="hero_section relative z-0 md:flex md:flex-row-reverse"
+    >
+      <div class="md:w-1/2">
         <img
-          class="w-full"
+          class="w-full md:hidden"
           src="./assets/mobile/image-hero.jpg"
           alt="image_hero"
         />
+        <img
+          class="w-full hidden md:inline-block"
+          src="./assets/desktop/image-hero.jpg"
+          alt="image_hero"
+        />
       </div>
-      <div class="px-5 py-10">
-        <h1 class="w-2/3 font-extrabold text-3xl my-2">
+      <div class="px-5 py-10 md:w-1/2">
+        <h1 class="w-2/3 font-extrabold text-3xl my-2 lg:text-5xl">
           Branding & website design agency
         </h1>
-        <p class="my-4 text-sm">
+        <p class="my-4 text-sm pr-7 lg:text-lg">
           We specialize in visual storytelling by creating cohesive brand and
           website design solutions for small businesses, giving lasting
           impressions to audiences in a digital world.
         </p>
         <button
-          class="text-white text-sm px-5 w-1/2 py-4 my-5 font-bold bg-[#F94F4F] drop-shadow-md shadow-sm shadow-md hover:shadow-xl active:scale-90 transition duration-300"
+          class="text-white text-sm px-5 w-1/2 py-4 my-5 font-bold bg-[#F94F4F] drop-shadow-md shadow-md hover:shadow-xl active:scale-90 transition duration-300"
         >
           Learn More
         </button>
@@ -81,35 +115,49 @@
 
     <!-- SERVICES SECTION -->
     <section id="services_section">
-      <div class="relative">
-        <div class="strategic_container">
-          <img
-            class="w-full"
-            src="./assets/mobile/image-strategic.jpg"
-            alt="image-strategic"
-          />
-        </div>
-        <div class="absolute left-10 transform -translate-x-1/2 bottom-[-12px]">
-          <div class="connector">
-            <img src="./assets/~.png" alt="~" />
+      <div class="md:flex md:flex-row w-full">
+        <div class="relative md:w-1/2">
+          <div class="strategic_container">
+            <img
+              class="w-full md:hidden"
+              src="./assets/mobile/image-strategic.jpg"
+              alt="image-strategic"
+            />
+            <img
+              class="w-full hidden md:inline-block"
+              src="./assets/desktop/image-strategic.jpg"
+              alt="image-strategic"
+            />
+          </div>
+          <div
+            class="absolute left-10 transform -translate-x-1/2 bottom-[-12px]"
+          >
+            <div class="connector md:hidden">
+              <img src="./assets/~.png" alt="~" />
+            </div>
+            <div class="connector hidden md:inline-block">
+              <img src="./assets/desktop/bg-pattern-wavy-white.svg" alt="~" />
+            </div>
           </div>
         </div>
-      </div>
-      <div class="strategic_content bg-[#191921] py-10 px-5">
-        <div>
-          <h1 class="text-white font-bold text-2xl my-4">
-            <span class="text-[#F94F4F]">Design</span> is strategic
-          </h1>
-          <p class="text-white text-sm/7 my-1">
-            “A well-crafted design strategy consistently produces desired
-            outcomes and brand awareness. We are firm believers that success
-            lies in creative collaboration with our clients.”
-          </p>
-          <button
-            class="my-3 font-semibold text-red-600 border-b-2 border-red-600 py-2"
-          >
-            Schedule a Call
-          </button>
+        <div
+          class="strategic_content md:w-1/2 bg-[#191921] py-10 md:py-20 px-5"
+        >
+          <div>
+            <h1 class="text-white font-bold text-2xl md:text-5xl my-4">
+              <span class="text-[#F94F4F]">Design</span> is strategic
+            </h1>
+            <p class="text-white text-sm/7 md:text-lg/7 my-1">
+              “A well-crafted design strategy consistently produces desired
+              outcomes and brand awareness. We are firm believers that success
+              lies in creative collaboration with our clients.”
+            </p>
+            <button
+              class="my-3 font-semibold md:text-lg text-red-600 border-b-2 border-red-600 py-2"
+            >
+              Schedule a Call
+            </button>
+          </div>
         </div>
       </div>
     </section>
